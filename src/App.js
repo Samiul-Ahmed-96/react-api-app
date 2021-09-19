@@ -10,30 +10,31 @@ function App() {
 }
 
 function MainCountry(){
-    const [country, setcountry] = useState([]);
+    const [country, setCountry] = useState([]);
 
     useEffect(()=> {
       fetch('https://restcountries.eu/rest/v2/all')
       .then(res => res.json())
-      .then(data => setcountry(data))
+      .then(data => setCountry(data))
     },[])
 
     return(
     <div>
-      <h2>Name : </h2>
-      <h3>Capital: </h3>
-      <h4>Population: </h4>
+     {
+       country.map(country => <Country name={country.name} capital={country.capital} population={country.population}></Country> )
+     }
     </div>
   )
 }
 
-function Country(){
+function Country(props){
   return(
     <div>
-      <h2>Name : </h2>
-      <h3>Capital: </h3>
-      <h4>Population: </h4>
+      <h2>Name : {props.name} </h2>
+      <h3>Capital: {props.capital} </h3>
+      <h4>Population: {props.population}</h4>
     </div>
+
   )
 }
 
