@@ -14,8 +14,7 @@ const MainCountry = () => {
     return(
     <div className="main-country">
      {
-    //    countryData.map(country => <Country name={country.name} capital={country.capital} population={country.population}></Country> )
-    countryData.map(country => <Country name={country.name} capital={country.capital} population={country.population}></Country>)
+      countryData.map(country => <Country country={country}></Country>)
      }
     </div>
   )
